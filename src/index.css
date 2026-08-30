@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/*
+  نظام التصميم — تجربة سياحية فاخرة
+  ألوان مستوحاة من الحجر البازلتي، الرمل، والذهب الدمشقي.
+*/
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Amiri", "Cairo", serif;
+
+  --color-sand-50: #fbf7f0;
+  --color-sand-100: #f5ece0;
+  --color-sand-200: #ead9c2;
+  --color-sand-300: #dcc09b;
+  --color-sand-400: #cba473;
+
+  --color-basalt-50: #eef3f1;
+  --color-basalt-100: #d3e0db;
+  --color-basalt-200: #a2bcb3;
+  --color-basalt-400: #4a7466;
+  --color-basalt-600: #275145;
+  --color-basalt-800: #14382e;
+  --color-basalt-900: #0f2a24;
+  --color-basalt-950: #081a16;
+
+  --color-gold-300: #edc978;
+  --color-gold-400: #e0b355;
+  --color-gold-500: #d9a441;
+  --color-gold-600: #b8862c;
+  --color-gold-700: #8f671f;
+
+  --color-clay-400: #d97757;
+  --color-clay-500: #c25f3f;
+
+  --radius-xl2: 1.25rem;
+
+  --shadow-soft: 0 1px 2px rgb(15 42 36 / 0.06), 0 8px 24px -12px rgb(15 42 36 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(15 42 36 / 0.06), 0 18px 40px -16px rgb(15 42 36 / 0.28);
+
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.4s ease-out both;
+  --animate-pop: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+  --animate-scanline: scanline 2.4s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes scanline {
+  0%,
+  100% {
+    transform: translateY(-42%);
+  }
+  50% {
+    transform: translateY(42%);
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-sand-200);
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-sand-50);
+    color: var(--color-basalt-900);
+    font-family: var(--font-sans);
+    font-feature-settings: "kern";
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: none;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: var(--color-gold-300);
+    color: var(--color-basalt-950);
+  }
+
+  /* شريط تمرير أنيق */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-sand-300);
+    border-radius: 9999px;
+    border: 3px solid var(--color-sand-50);
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility text-balance-none {
+  text-wrap: initial;
+}
+
+/* خلفية زخرفية خفيفة مستوحاة من النقش الشرقي */
+@utility pattern-arabesque {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgb(15 42 36 / 0.07) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+@utility glass-panel {
+  background: rgb(255 255 255 / 0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+}
