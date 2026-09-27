@@ -103,7 +103,7 @@ export function LoginPage() {
             <Input
               id="identifier"
               autoComplete="username"
-              placeholder="997980231"
+              placeholder="9XXXXXXXX"
               aria-invalid={!!errors.identifier}
               {...register("identifier")}
             />

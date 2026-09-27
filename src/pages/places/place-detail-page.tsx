@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { Page, PageSection } from "@/components/common/page";
 import { Hero } from "@/components/common/hero";
-import { LocationMapFallback } from "@/components/common/location-map";
+import { LocationMapFallback } from "@/components/common/map-fallbacks";
 import { ImageGallery, VideoGallery } from "@/components/common/media-gallery";
 import { SectionHeader } from "@/components/common/section-header";
 import { Badge } from "@/components/ui/badge";

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Facebook, HeartHandshake, Instagram, Mail, Phone } from "lucide-react";
 import { BrandMark } from "@/components/common/brand-logo";
+import { useJourney } from "@/context/journey-context";
+import { isUserBookDeleted } from "@/features/books/booklet-card";
 import { useT } from "@/i18n/locale-context";
 import { cn } from "@/lib/utils";
 
@@ -87,10 +89,22 @@ export function SiteFooter({ className }: { className?: string }) {
   const t = useT();
   const year = new Date().getFullYear();
 
+  /*
+     صفحة الشركاء محميّة بـ `RequireBooklet`، فمن لا جواز له يُعاد إلى
+     صفحة جوازاته بلا تفسير. نفس شرط الحارس يُطبَّق هنا فلا يظهر الرابط
+     أصلاً لمن لا يستطيع فتحه — رابط غائب أهون من رابط يرتدّ.
+  */
+  const { userBooks } = useJourney();
+
+  const hasBooklet =
+    userBooks.some((item) => !isUserBookDeleted(item));
+
   const links = [
     { to: "/about", label: t("footer.about") },
     { to: "/faq", label: t("footer.faq") },
     { to: "/privacy", label: t("footer.privacy") },
+    /* نفس تسمية الشركاء في شريط التنقّل — وجهة واحدة باسم واحد. */
+    ...(hasBooklet ? [{ to: "/partners", label: t("nav.partners") }] : []),
   ];
 
   return (

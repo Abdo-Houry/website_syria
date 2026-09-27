@@ -53,7 +53,7 @@ export const ar = {
   "auth.loginSubtitle": "أدخل بياناتك لمتابعة رحلتك من حيث توقّفت.",
   "auth.identifier": "رقم الهاتف أو الاسم",
   "auth.identifierHint":
-    "ادخل برقم هاتفك (بلا صفر ولا رمز دولة، مثل 997980231) أو باسمك، والمشرفون باسم المستخدم.",
+    "ادخل برقم هاتفك (بلا صفر ولا رمز دولة، مثل 9XXXXXXXX) أو باسمك.",
   "auth.identifierRequired": "هذا الحقل مطلوب",
   "auth.password": "كلمة المرور",
   "auth.passwordRequired": "كلمة المرور مطلوبة",
@@ -652,7 +652,7 @@ export const ar = {
   "about.subtitle": "صك — الرفيق الرقمي لجوازك السياحي.",
   "about.p1": "«صك» منصة تحوّل الجواز السياحي الورقي إلى رحلة تفاعلية: تمسح رمز المكان، تُسجَّل زيارتك، تخوض التحديات، وتجمع الطوابع.",
   "about.p2": "هدفنا أن يكتشف الزائر سوريا بعينٍ جديدة — مكاناً بعد مكان — وأن تبقى كل رحلة محفوظة في حسابه.",
-  "about.p3": "نؤمن بأن السياحة رسالة، لذلك نخصّص 20% من أرباح المنصة للأعمال الخيرية.",
+  "about.p3": "نؤمن بأن السياحة رسالة، لذلك يتم التبرع بـ 10% من قيمة الجواز إلى الأعمال الخيرية.",
   "about.contactTitle": "للتواصل",
   "privacy.title": "سياسة الخصوصية",
   "privacy.subtitle": "كيف نتعامل مع بياناتك داخل منصة صك.",
@@ -697,7 +697,6 @@ export const ar = {
   "admin.selectArea": "اختر المنطقة",
   "admin.areaPlacesCount": "{count} مكان",
   "admin.areaHint": "اختياري — بعض الأماكن لا تتبع أي منطقة.",
-  "admin.areaNamePlaceholder": "أبواب حلب",
   "admin.profile": "حسابي",
   "admin.profileHint": "غيّر اسم المستخدم أو كلمة المرور الخاصة بحساب الإدارة.",
   "admin.currentPassword": "كلمة المرور الحالية",
@@ -779,6 +778,27 @@ export const ar = {
   "errors.mailSendFailed": "تعذّر إرسال رسالة التحقّق — حاول مجدداً.",
   "errors.serialVersionExists": "هذا السيريال موجود بهذا الإصدار — غيّر الإصدار أو السيريال.",
   "errors.serviceUnavailable": "الخدمة غير متاحة مؤقتاً — حاول لاحقاً.",
+  "errors.tooManyLoginAttempts": "محاولات دخول كثيرة — انتظر ربع ساعة ثم حاول مجدداً.",
+  "errors.tooManyOtpEmails": "طلبات رموز كثيرة — انتظر ساعة ثم حاول مجدداً.",
+
+  // نصوص الحقول الفارغة — أمثلة شكلية تشرح المطلوب، لا بيانات حقيقية
+  "ph.fullName": "الاسم الأول واسم العائلة",
+  "ph.username": "اسم المستخدم",
+  "ph.provinceName": "اسم المحافظة",
+  "ph.areaName": "اسم المنطقة",
+  "ph.placeName": "اسم المكان",
+  "ph.bookName": "اسم الجواز",
+  "ph.stampName": "اسم الطابع",
+  "ph.partnerName": "اسم الشريك",
+  "ph.challengeTitle": "عنوان التحدي",
+  "ph.challengeDetails": "تفاصيل التحدي كما تظهر للزائر",
+  "ph.question": "نصّ السؤال",
+  "ph.answer": "نصّ الإجابة",
+  "ph.summary": "سطر تعريفي قصير",
+  "ph.description": "وصف يظهر في الصفحة",
+  "ph.visitInfo": "مواعيد الزيارة ورسوم الدخول",
+  "ph.translationEmpty": "اتركه فارغاً لاستعمال النص الأساسي",
+
 } as const;
 
 export type MessageKey = keyof typeof ar;

@@ -62,6 +62,8 @@ const BACKEND_MESSAGE_KEYS: Record<string, MessageKey> = {
   "Verification code expired": "errors.otpExpired",
   "Invalid verification code": "errors.otpInvalid",
   "Too many attempts": "errors.otpTooManyAttempts",
+  "Too many login attempts": "errors.tooManyLoginAttempts",
+  "Too many verification emails": "errors.tooManyOtpEmails",
   "Email service unavailable": "errors.mailUnavailable",
   "Could not send verification email": "errors.mailSendFailed",
   "Invalid credentials": "errors.invalidCredentials",

@@ -293,13 +293,17 @@ export function AdminAreasPage() {
         >
           <Input
             id="area-name"
-            placeholder={t("admin.areaNamePlaceholder")}
+            placeholder={t("ph.areaName")}
             {...form.register("name")}
           />
         </Field>
 
         <Field label={t("admin.description")} htmlFor="area-description">
-          <Textarea id="area-description" {...form.register("description")} />
+          <Textarea
+            id="area-description"
+            placeholder={t("ph.description")}
+            {...form.register("description")}
+          />
         </Field>
 
         <TranslationsEditor

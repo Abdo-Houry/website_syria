@@ -130,7 +130,7 @@ export function ForgotPasswordPage() {
                 type="email"
                 dir="ltr"
                 autoComplete="email"
-                placeholder="you@example.com"
+                placeholder="name@example.com"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
@@ -166,7 +166,7 @@ export function ForgotPasswordPage() {
                 inputMode="numeric"
                 autoComplete="one-time-code"
                 maxLength={6}
-                placeholder="000000"
+                placeholder="XXXXXX"
                 className="text-center text-lg font-bold tracking-[0.6em] tabular-nums"
                 value={code}
                 onChange={(event) =>

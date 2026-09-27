@@ -87,6 +87,7 @@ export function TranslationsEditor({
                       id={id}
                       dir={LOCALE_META[locale].dir}
                       className="min-h-20"
+                      placeholder={t("ph.translationEmpty")}
                       value={current}
                       onChange={(event) =>
                         setField(locale, field.name, event.target.value)
@@ -96,6 +97,7 @@ export function TranslationsEditor({
                     <Input
                       id={id}
                       dir={LOCALE_META[locale].dir}
+                      placeholder={t("ph.translationEmpty")}
                       value={current}
                       onChange={(event) =>
                         setField(locale, field.name, event.target.value)

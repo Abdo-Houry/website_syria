@@ -137,7 +137,12 @@ export function ProfilePage() {
                 htmlFor="name"
                 error={errors.name ? t("auth.nameMin") : undefined}
               >
-                <Input id="name" aria-invalid={!!errors.name} {...register("name")} />
+                <Input
+                  id="name"
+                  placeholder={t("ph.fullName")}
+                  aria-invalid={!!errors.name}
+                  {...register("name")}
+                />
               </Field>
 
               <Field
@@ -149,6 +154,7 @@ export function ProfilePage() {
                   id="phone"
                   type="tel"
                   dir="ltr"
+                  placeholder="9XXXXXXXX"
                   aria-invalid={!!errors.phone}
                   {...register("phone")}
                 />
@@ -163,7 +169,7 @@ export function ProfilePage() {
                   id="email"
                   type="email"
                   dir="ltr"
-                  placeholder="you@example.com"
+                  placeholder="name@example.com"
                   aria-invalid={!!errors.email}
                   {...register("email")}
                 />

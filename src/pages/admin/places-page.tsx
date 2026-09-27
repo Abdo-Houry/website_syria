@@ -15,7 +15,8 @@ import {
   TranslationsEditor,
   pruneTranslations,
 } from "@/components/admin/translations-editor";
-import { MapPickerFallback, type LatLng } from "@/components/common/map-picker";
+import { MapPickerFallback } from "@/components/common/map-fallbacks";
+import type { LatLng } from "@/components/common/map-picker";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -394,15 +395,27 @@ export function AdminPlacesPage() {
           htmlFor="place-name"
           error={form.formState.errors.name ? t("admin.nameRequired") : undefined}
         >
-          <Input id="place-name" placeholder="قلعة حلب" {...form.register("name")} />
+          <Input
+            id="place-name"
+            placeholder={t("ph.placeName")}
+            {...form.register("name")}
+          />
         </Field>
 
         <Field label={t("admin.summary")} htmlFor="place-summary">
-          <Input id="place-summary" {...form.register("summary")} />
+          <Input
+            id="place-summary"
+            placeholder={t("ph.summary")}
+            {...form.register("summary")}
+          />
         </Field>
 
         <Field label={t("admin.description")} htmlFor="place-description">
-          <Textarea id="place-description" {...form.register("description")} />
+          <Textarea
+            id="place-description"
+            placeholder={t("ph.description")}
+            {...form.register("description")}
+          />
         </Field>
 
         <Field
@@ -410,7 +423,11 @@ export function AdminPlacesPage() {
           htmlFor="visit_info"
           hint={t("admin.visitInfoHint")}
         >
-          <Textarea id="visit_info" {...form.register("visit_info")} />
+          <Textarea
+            id="visit_info"
+            placeholder={t("ph.visitInfo")}
+            {...form.register("visit_info")}
+          />
         </Field>
 
         <label className="flex cursor-pointer items-start gap-3 rounded-2xl border border-basalt-900/10 bg-sand-50/50 p-4">

@@ -335,7 +335,11 @@ export function AdminChallengesPage() {
             form.formState.errors.title ? t("admin.challengeTitleRequired") : undefined
           }
         >
-          <Input id="title" {...form.register("title")} />
+          <Input
+            id="title"
+            placeholder={t("ph.challengeTitle")}
+            {...form.register("title")}
+          />
         </Field>
 
         <Field
@@ -349,6 +353,7 @@ export function AdminChallengesPage() {
         >
           <Textarea
             id="challenge-description"
+            placeholder={t("ph.challengeDetails")}
             aria-invalid={!!form.formState.errors.description}
             {...form.register("description")}
           />

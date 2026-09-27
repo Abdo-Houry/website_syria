@@ -218,7 +218,11 @@ export function AdminPartnersPage() {
           htmlFor="partner-name"
           error={form.formState.errors.name ? t("admin.nameRequired") : undefined}
         >
-          <Input id="partner-name" {...form.register("name")} />
+          <Input
+            id="partner-name"
+            placeholder={t("ph.partnerName")}
+            {...form.register("name")}
+          />
         </Field>
 
         <ImageUploadField
@@ -246,12 +250,17 @@ export function AdminPartnersPage() {
             id="discount"
             dir="ltr"
             inputMode="decimal"
+            placeholder="XX"
             {...form.register("discount_percentage")}
           />
         </Field>
 
         <Field label={t("admin.description")} htmlFor="partner-description">
-          <Textarea id="partner-description" {...form.register("description")} />
+          <Textarea
+            id="partner-description"
+            placeholder={t("ph.description")}
+            {...form.register("description")}
+          />
         </Field>
 
         <TranslationsEditor

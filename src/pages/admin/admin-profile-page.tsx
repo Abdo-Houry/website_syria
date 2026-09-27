@@ -108,6 +108,7 @@ export function AdminProfilePage() {
                 id="admin-username"
                 dir="ltr"
                 autoComplete="username"
+                placeholder={t("ph.username")}
                 aria-invalid={!!errors.username}
                 {...form.register("username")}
               />
@@ -164,6 +165,7 @@ export function AdminProfilePage() {
                   id="admin-current-password"
                   type="password"
                   autoComplete="current-password"
+                  placeholder="••••••••"
                   className="ps-11"
                   aria-invalid={!!errors.currentPassword}
                   {...form.register("currentPassword")}

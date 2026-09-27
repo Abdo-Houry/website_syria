@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { Crosshair, Loader2, MapPin, Search, X } from "lucide-react";
+import { Crosshair, MapPin, Search, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -388,10 +388,4 @@ export function MapPicker({
 }
 
 /** حالة تحميل بسيطة عند تحميل الخريطة كسولاً. */
-export function MapPickerFallback() {
-  return (
-    <div className="grid h-64 w-full place-items-center rounded-2xl border border-basalt-900/10 bg-sand-100">
-      <Loader2 className="size-6 animate-spin text-basalt-600/50" aria-hidden />
-    </div>
-  );
-}
+

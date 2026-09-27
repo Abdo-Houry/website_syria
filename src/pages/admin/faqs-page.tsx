@@ -172,7 +172,11 @@ export function AdminFaqsPage() {
             form.formState.errors.question ? t("admin.questionRequired") : undefined
           }
         >
-          <Input id="question" {...form.register("question")} />
+          <Input
+            id="question"
+            placeholder={t("ph.question")}
+            {...form.register("question")}
+          />
         </Field>
 
         <Field
@@ -180,7 +184,12 @@ export function AdminFaqsPage() {
           htmlFor="answer"
           error={form.formState.errors.answer ? t("admin.answerRequired") : undefined}
         >
-          <Textarea id="answer" className="min-h-36" {...form.register("answer")} />
+          <Textarea
+            id="answer"
+            className="min-h-36"
+            placeholder={t("ph.answer")}
+            {...form.register("answer")}
+          />
         </Field>
 
         <TranslationsEditor

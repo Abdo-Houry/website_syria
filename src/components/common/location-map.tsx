@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { Loader2, Navigation, Route, X } from "lucide-react";
+import { Navigation, Route, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { useT } from "@/i18n/locale-context";
@@ -256,10 +256,4 @@ export function LocationMap({
 }
 
 /** حالة تحميل أثناء تحميل حزمة الخريطة كسولاً. */
-export function LocationMapFallback() {
-  return (
-    <div className="grid h-72 w-full place-items-center rounded-[var(--radius-xl2)] border border-basalt-900/10 bg-sand-100">
-      <Loader2 className="size-6 animate-spin text-basalt-600/50" aria-hidden />
-    </div>
-  );
-}
+

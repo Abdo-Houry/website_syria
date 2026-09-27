@@ -15,7 +15,8 @@ import {
   TranslationsEditor,
   pruneTranslations,
 } from "@/components/admin/translations-editor";
-import { MapPickerFallback, type LatLng } from "@/components/common/map-picker";
+import { MapPickerFallback } from "@/components/common/map-fallbacks";
+import type { LatLng } from "@/components/common/map-picker";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -233,15 +234,27 @@ export function AdminProvincesPage() {
           htmlFor="name"
           error={form.formState.errors.name ? t("admin.nameRequired") : undefined}
         >
-          <Input id="name" placeholder="حلب" {...form.register("name")} />
+          <Input
+            id="name"
+            placeholder={t("ph.provinceName")}
+            {...form.register("name")}
+          />
         </Field>
 
         <Field label={t("admin.summary")} htmlFor="summary">
-          <Input id="summary" {...form.register("summary")} />
+          <Input
+            id="summary"
+            placeholder={t("ph.summary")}
+            {...form.register("summary")}
+          />
         </Field>
 
         <Field label={t("admin.description")} htmlFor="description">
-          <Textarea id="description" {...form.register("description")} />
+          <Textarea
+            id="description"
+            placeholder={t("ph.description")}
+            {...form.register("description")}
+          />
         </Field>
 
         <TranslationsEditor

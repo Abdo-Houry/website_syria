@@ -307,7 +307,7 @@ export function AdminBookCopiesPage() {
           <Input
             id="serial_number"
             dir="ltr"
-            placeholder="000001"
+            placeholder="XXXXXX"
             {...form.register("serial_number")}
           />
         </Field>
@@ -323,7 +323,7 @@ export function AdminBookCopiesPage() {
           <Input
             id="version"
             dir="ltr"
-            placeholder="001"
+            placeholder="XXX"
             {...form.register("version")}
           />
         </Field>

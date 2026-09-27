@@ -115,6 +115,7 @@ export function RegisterPage() {
             <Input
               id="name"
               autoComplete="name"
+              placeholder={t("ph.fullName")}
               aria-invalid={!!errors.name}
               {...register("name")}
             />
@@ -154,7 +155,7 @@ export function RegisterPage() {
               type="email"
               dir="ltr"
               autoComplete="email"
-              placeholder="you@example.com"
+              placeholder="name@example.com"
               aria-invalid={!!errors.email}
               {...register("email")}
             />

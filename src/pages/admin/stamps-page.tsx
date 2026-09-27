@@ -250,7 +250,11 @@ export function AdminStampsPage() {
           htmlFor="stamp-name"
           error={form.formState.errors.name ? t("admin.nameRequired") : undefined}
         >
-          <Input id="stamp-name" {...form.register("name")} />
+          <Input
+            id="stamp-name"
+            placeholder={t("ph.stampName")}
+            {...form.register("name")}
+          />
         </Field>
 
         <ImageUploadField
@@ -266,7 +270,11 @@ export function AdminStampsPage() {
         />
 
         <Field label={t("admin.description")} htmlFor="stamp-description">
-          <Textarea id="stamp-description" {...form.register("description")} />
+          <Textarea
+            id="stamp-description"
+            placeholder={t("ph.description")}
+            {...form.register("description")}
+          />
         </Field>
 
         <TranslationsEditor

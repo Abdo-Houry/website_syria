@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { BrandLockup, BrandWordmark } from "@/components/common/brand-logo";
+import { BrandLockup } from "@/components/common/brand-logo";
 import { LanguageSwitcher } from "@/components/common/language-switcher";
 import { useT } from "@/i18n/locale-context";
 
@@ -21,7 +21,7 @@ export function AuthLayout() {
         />
         <div className="absolute inset-0 pattern-arabesque opacity-30" aria-hidden />
         <div className="relative flex h-full flex-col justify-between p-12">
-          <BrandLockup className="h-20" fallbackClassName="h-12 text-gold-400" />
+          <BrandLockup on="dark" className="h-20" fallbackClassName="h-12 text-gold-400" />
 
           <div className="max-w-md">
             <h2 className="font-display text-4xl leading-snug text-sand-50">
@@ -43,7 +43,7 @@ export function AuthLayout() {
         <div className="w-full max-w-md animate-fade-up">
           <div className="mb-6 flex items-center justify-between gap-3">
             <div className="lg:invisible">
-              <BrandWordmark className="h-9 text-basalt-900" />
+              <BrandLockup className="h-11" fallbackClassName="h-7 text-basalt-900" />
             </div>
             <LanguageSwitcher />
           </div>

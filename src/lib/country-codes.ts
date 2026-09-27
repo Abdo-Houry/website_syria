@@ -15,21 +15,27 @@ export interface CountryCode {
   dial: string;
   /** أطوال الرقم الوطني المقبولة — مرتّبة تصاعدياً */
   lengths: number[];
+  /**
+   * أول خانة في أرقام الموبايل — تدخل في قناع الإدخال وحده (`9XXXXXXXX`)
+   * لا في التحقّق. تُذكر للدول التي لها بادئة واحدة لا لبس فيها، وما عداها
+   * يُعرض القناع خانات مجهولة كلّه.
+   */
+  mobilePrefix?: string;
   name: { ar: string; en: string };
 }
 
 export const DEFAULT_COUNTRY_ISO = "SY";
 
 export const COUNTRY_CODES: CountryCode[] = [
-  { iso: "SY", dial: "963", lengths: [9], name: { ar: "سوريا", en: "Syria" } },
+  { iso: "SY", dial: "963", lengths: [9], mobilePrefix: "9", name: { ar: "سوريا", en: "Syria" } },
   { iso: "LB", dial: "961", lengths: [7, 8], name: { ar: "لبنان", en: "Lebanon" } },
-  { iso: "JO", dial: "962", lengths: [9], name: { ar: "الأردن", en: "Jordan" } },
-  { iso: "IQ", dial: "964", lengths: [10], name: { ar: "العراق", en: "Iraq" } },
-  { iso: "TR", dial: "90", lengths: [10], name: { ar: "تركيا", en: "Türkiye" } },
-  { iso: "PS", dial: "970", lengths: [9], name: { ar: "فلسطين", en: "Palestine" } },
-  { iso: "EG", dial: "20", lengths: [10], name: { ar: "مصر", en: "Egypt" } },
-  { iso: "SA", dial: "966", lengths: [9], name: { ar: "السعودية", en: "Saudi Arabia" } },
-  { iso: "AE", dial: "971", lengths: [9], name: { ar: "الإمارات", en: "United Arab Emirates" } },
+  { iso: "JO", dial: "962", lengths: [9], mobilePrefix: "7", name: { ar: "الأردن", en: "Jordan" } },
+  { iso: "IQ", dial: "964", lengths: [10], mobilePrefix: "7", name: { ar: "العراق", en: "Iraq" } },
+  { iso: "TR", dial: "90", lengths: [10], mobilePrefix: "5", name: { ar: "تركيا", en: "Türkiye" } },
+  { iso: "PS", dial: "970", lengths: [9], mobilePrefix: "5", name: { ar: "فلسطين", en: "Palestine" } },
+  { iso: "EG", dial: "20", lengths: [10], mobilePrefix: "1", name: { ar: "مصر", en: "Egypt" } },
+  { iso: "SA", dial: "966", lengths: [9], mobilePrefix: "5", name: { ar: "السعودية", en: "Saudi Arabia" } },
+  { iso: "AE", dial: "971", lengths: [9], mobilePrefix: "5", name: { ar: "الإمارات", en: "United Arab Emirates" } },
   { iso: "QA", dial: "974", lengths: [8], name: { ar: "قطر", en: "Qatar" } },
   { iso: "KW", dial: "965", lengths: [8], name: { ar: "الكويت", en: "Kuwait" } },
   { iso: "BH", dial: "973", lengths: [8], name: { ar: "البحرين", en: "Bahrain" } },
@@ -244,9 +250,16 @@ export function digitsHint(country: CountryCode): string {
   return country.lengths.join(" / ");
 }
 
-/** قناع الإدخال المتوقّع — يُعرض كـ placeholder. */
+/**
+ * قناع الإدخال المتوقّع — يُعرض كـ placeholder.
+ *
+ * خانات مجهولة لا رقم مثال: `9XXXXXXXX` يشرح الشكل المطلوب بلا أن يبدو
+ * رقماً حقيقياً قد يحسبه الزائر قيمة مكتوبة أصلاً.
+ */
 export function phonePlaceholder(country: CountryCode): string {
-  return "X".repeat(maxDigits(country));
+  const digits = maxDigits(country);
+  const prefix = country.mobilePrefix ?? "";
+  return prefix + "X".repeat(digits - prefix.length);
 }
 
 /** يركّب الرقم الدولي: يزيل الصفر الأول من الرقم المحلي وأي فواصل. */

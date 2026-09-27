@@ -24,8 +24,14 @@ export const BRAND_LOGO_SRC = "/brand/sak-logo.png";
  * لون واحد، أمّا اللوحة الكاملة فتفقد الخريطة والسطر السفلي إن صُبغت
  * بلون واحد. تُستعمل حيث تتّسع المساحة (صفحات الدخول وشاشة الانتظار)،
  * وتبقى `BrandMark` للمواضع الضيّقة كالشريط العلوي.
+ *
+ * نسختان مقصوصتان بخلفية شفّافة، مشتقّتان من `public/logo_Login.jpg`
+ * (الأصل بخلفية سوداء مصمتة): الأولى بألوانها الأصلية والكلمة فيها داكنة
+ * فتصلح للخلفيات الفاتحة، والثانية كلمتها ذهبية للخلفيات الداكنة — فالكلمة
+ * الداكنة تختفي على الأخضر الداكن.
  */
 export const BRAND_LOCKUP_SRC = "/brand/sak-logo-full.png";
+export const BRAND_LOCKUP_DARK_SRC = "/brand/sak-logo-full-dark.png";
 
 /** أبعاد العلامة الأصلية بعد القصّ — تحافظ على النِّسبة عند أي ارتفاع. */
 export const BRAND_LOGO_WIDTH = 1084;
@@ -70,10 +76,13 @@ export function BrandWordmark({ className }: { className?: string }) {
 export function BrandLockup({
   className,
   fallbackClassName,
+  on = "light",
 }: {
   className?: string;
   /** لون الكلمة عند غياب ملف الشعار الكامل. */
   fallbackClassName?: string;
+  /** لون الخلفية التي يجلس عليها الشعار — يحدّد أيّ نسخة تُستعمل. */
+  on?: "light" | "dark";
 }) {
   const [failed, setFailed] = useState(false);
 
@@ -83,7 +92,7 @@ export function BrandLockup({
 
   return (
     <img
-      src={BRAND_LOCKUP_SRC}
+      src={on === "dark" ? BRAND_LOCKUP_DARK_SRC : BRAND_LOCKUP_SRC}
       alt={BRAND_WORD}
       onError={() => setFailed(true)}
       className={cn("h-16 w-auto object-contain", className)}

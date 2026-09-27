@@ -323,11 +323,19 @@ export function AdminBooksPage() {
           htmlFor="book-name"
           error={form.formState.errors.name ? t("admin.nameRequired") : undefined}
         >
-          <Input id="book-name" {...form.register("name")} />
+          <Input
+            id="book-name"
+            placeholder={t("ph.bookName")}
+            {...form.register("name")}
+          />
         </Field>
 
         <Field label={t("admin.description")} htmlFor="book-description">
-          <Textarea id="book-description" {...form.register("description")} />
+          <Textarea
+            id="book-description"
+            placeholder={t("ph.description")}
+            {...form.register("description")}
+          />
         </Field>
 
         <TranslationsEditor
